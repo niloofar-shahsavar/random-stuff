@@ -1,20 +1,50 @@
+/* ============================================
+   Landing Page - Minimalist Design
+   ============================================ */
+
 .landingpage-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: var(--space-2xl) 0;
 }
 
 .landingpage-image {
   width: 80%;
+  max-width: 1280px;
   height: 550px;
   object-position: bottom;
   object-fit: cover;
+  border-radius: var(--border-radius-md);
+  border: var(--border-width) solid var(--color-border-light);
 }
+
+/* ============================================
+   Responsive Design
+   ============================================ */
 
 @media only screen and (max-width: 1024px) {
   .landingpage-image {
+    width: 90%;
+    height: 450px;
+  }
+
+  .landingpage-section {
+    padding: var(--space-xl) 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .landingpage-image {
     width: 100%;
-    margin-top: 50px;
+    height: 350px;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  .landingpage-section {
+    padding: var(--space-md) 0;
   }
 }

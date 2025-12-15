@@ -1,23 +1,34 @@
+/* ============================================
+   Logo Light - Minimalist Design
+   ============================================ */
+
 @import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
 
 .logo-light {
   display: flex;
   align-items: baseline;
   flex-direction: row;
+  transition: opacity var(--transition-base);
+}
+
+.logo-light:hover {
+  opacity: 0.8;
 }
 
 .lilita-one-regular-light {
   font-family: "Lilita One", sans-serif;
   font-weight: 300;
   font-style: normal;
+  color: var(--color-white);
 }
 
 .logo-cursor-light {
   font-size: 30px;
-  margin-left: 0px;
+  margin-left: 0;
+  color: var(--color-white);
 }
 
 .logo-cursor-light:hover {
-  color: white;
+  color: var(--color-white);
   cursor: default;
 }

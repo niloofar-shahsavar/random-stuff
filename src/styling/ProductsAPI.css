@@ -1,153 +1,210 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&display=swap");
+/* ============================================
+   Products API - Minimalist Design
+   ============================================ */
+
+/* ===== Category Buttons ===== */
 
 .category-buttons {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  gap: 60px;
-  white-space: nowrap;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 1000px;
 }
 
 .category-buttons button {
-  padding: 10px 10px;
-  font-size: 16px;
+  padding: var(--space-md) var(--space-lg);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-medium);
   cursor: pointer;
-  color: black;
-  border: 1px solid black;
-  border-radius: 28px;
-  transition: background-color 0.3s;
+  color: var(--color-text-primary);
+  border: var(--border-width) solid var(--color-border-medium);
+  border-radius: var(--border-radius-md);
   background-color: transparent;
+  transition: all var(--transition-base);
+  white-space: nowrap;
 }
 
 .category-buttons button:hover {
-  background-color: #a2c2e867;
+  background-color: var(--color-soft-white);
+  border-color: var(--color-text-primary);
 }
 
 .category-buttons button.active {
-  background-color: #a2c2e8;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border-color: var(--color-accent);
 }
+
+/* ===== Products Section ===== */
 
 .API-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-4xl);
 }
 
 .APIproduct-list {
-  font-family: "Lato", sans-serif;
+  font-family: var(--font-secondary);
   width: 80%;
+  max-width: 1280px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   justify-items: center;
-  gap: 28px;
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
 }
 
+/* ===== Product Cards ===== */
+
 .APIproduct-div {
-  background-color: #ffffff;
-  max-height: 450px;
+  background-color: var(--color-white);
+  border: var(--border-width) solid var(--color-border-light);
+  border-radius: var(--border-radius-md);
+  width: 100%;
+  max-width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
-  overflow: hidden;
-  border: transparent solid 1px;
+  padding: var(--space-lg);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  gap: var(--space-md);
 }
 
-.APIproduct-div img:hover {
-  cursor: pointer;
-  overflow: hidden;
+.APIproduct-div:hover {
+  border-color: var(--color-border-medium);
+  box-shadow: var(--shadow-sm);
 }
 
 .APIproduct-div img {
-  max-height: 224px;
-  min-height: 224px;
+  height: 224px;
+  width: 100%;
   object-fit: contain;
-  width: 90%;
-  margin-left: 5%;
+  cursor: pointer;
+  transition: opacity var(--transition-base);
+}
+
+.APIproduct-div img:hover {
+  opacity: 0.8;
 }
 
 .APIproducts-h3 {
   width: 100%;
-  font-weight: 600;
-  font-size: 20px;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-body-sm);
   text-align: center;
-  font-family: "Lato", sans-serif;
+  font-family: var(--font-secondary);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-normal);
+
+  /* Limit to 2 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .APIproduct-h3 {
   text-align: center;
+  color: var(--color-text-primary);
 }
 
 .API-product-price {
-  font-family: "Lato", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
   text-decoration: none;
 }
 
-.pagination button {
-  background-color: transparent;
-  margin: 5px;
-  padding: 10px 15px;
-  border: solid 1px black;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 4px;
-}
-
-.pagination button.active {
-  background-color: #a2c2e8;
-}
-
-.pagination button:hover {
-  background-color: #a2c2e86b;
-}
+/* ===== Pagination ===== */
 
 .pagination {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  align-items: center;
+  margin-top: var(--space-xl);
+  gap: var(--space-sm);
 }
 
 .pagination button {
   background-color: transparent;
-  margin: 5px;
-  padding: 10px 15px;
-  border: solid 1px black;
+  padding: var(--space-md) var(--space-lg);
+  border: var(--border-width) solid var(--color-border-medium);
   cursor: pointer;
-  font-size: 16px;
-  border-radius: 4px;
-}
-
-.pagination button.active {
-  background-color: #a2c2e8;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--border-radius-md);
+  color: var(--color-text-primary);
+  transition: all var(--transition-base);
+  min-width: 44px;
 }
 
 .pagination button:hover {
-  background-color: #a2c2e86b;
+  background-color: var(--color-soft-white);
+  border-color: var(--color-text-primary);
 }
 
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+.pagination button.active {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border-color: var(--color-accent);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media only screen and (max-width: 1024px) {
+  .APIproduct-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
 }
 
 @media only screen and (max-width: 768px) {
-  .APIproduct-div img {
-    width: 100%;
+  .APIproduct-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    width: 90%;
   }
 
-  .APIproduct-list {
-    grid-template-columns: 1fr 1fr;
+  .APIproduct-div {
+    max-width: 100%;
+  }
+
+  .APIproduct-div img {
+    height: 180px;
   }
 
   .category-buttons {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-top: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+    width: 90%;
+  }
+
+  .category-buttons button {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--font-size-body-sm);
+  }
+
+  .pagination button {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--font-size-body-sm);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .APIproduct-list {
+    grid-template-columns: 1fr;
+  }
+
+  .category-buttons {
+    grid-template-columns: 1fr;
   }
 }

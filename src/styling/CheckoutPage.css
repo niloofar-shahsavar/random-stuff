@@ -1,78 +1,105 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+/* ============================================
+   Checkout Page - Minimalist Design
+   ============================================ */
 
 .checkoutpage-first-container {
   display: flex;
   flex-direction: column;
   justify-items: center;
   align-items: center;
+  padding: var(--space-4xl) 0;
 }
 
 .checkoutpage-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: var(--space-xl);
   width: 80%;
+  max-width: 1280px;
 }
 
 .checkoutpage-h1 {
   text-align: center;
-  font-family: "Outfit", sans-serif;
-  font-size: 48px;
-  font-weight: 600;
-  margin-top: 50px;
-  margin-bottom: 100px;
-  color: #1a335b;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-3xl) 0;
 }
 
+/* ===== Back Navigation ===== */
 
 .back-to-cart-navigation {
   display: flex;
-  border-radius: 4px;
-  font-size: smaller;
+  align-items: center;
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-tertiary);
   cursor: pointer;
-  margin-right: 680px;
-  margin-bottom: 10px;
-  font-family: Lato, Helvetica, sans-serif;
-  margin-top: 30px;
-}
-
-
-.back-to-cart-button {
-  display: flex;
-  padding-right: 5px;
-}
-
-.back-to-cart-page-text {
-  margin-top: 4px;
-  margin-left: 5px;
+  margin-bottom: var(--space-xl);
+  transition: color var(--transition-base);
+  gap: var(--space-xs);
+  align-self: flex-start;
+  width: 80%;
+  max-width: 1280px;
 }
 
 .back-to-cart-navigation:hover {
-  background-color: #a2c2e867;
+  color: var(--color-text-primary);
 }
 
+.back-to-cart-button {
+  display: flex;
+  align-items: center;
+}
+
+.back-to-cart-page-text {
+  margin-left: var(--space-xs);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
 
 @media only screen and (max-width: 1024px) {
   .checkoutpage-container {
-    display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
-    width: 80%;
-    margin-bottom: 3%;
+    gap: var(--space-lg);
+    width: 85%;
+  }
+
+  .back-to-cart-navigation {
+    width: 85%;
+  }
+
+  .checkoutpage-first-container {
+    padding: var(--space-3xl) 0;
   }
 }
-
 
 @media screen and (max-width: 768px) {
+  .checkoutpage-container {
+    width: 90%;
+  }
 
   .back-to-cart-navigation {
-    margin-right: 200px;
+    width: 90%;
+  }
+
+  .checkoutpage-first-container {
+    padding: var(--space-2xl) 0;
+  }
+
+  .checkoutpage-h1 {
+    margin-bottom: var(--space-2xl);
   }
 }
 
+@media only screen and (max-width: 480px) {
+  .checkoutpage-container {
+    width: 95%;
+  }
 
-@media only screen and (max-width: 460px) {
   .back-to-cart-navigation {
-    margin-right: 250px;
+    width: 95%;
   }
 }

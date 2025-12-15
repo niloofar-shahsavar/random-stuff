@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&display=swap");
+/* ============================================
+   About Page - Minimalist Design
+   ============================================ */
 
 .about-container {
   width: 100%;
@@ -6,67 +8,107 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 5%;
+  padding: var(--space-4xl) var(--space-md) var(--space-5xl);
 }
 
 .about-h1 {
-  font-family: "Outfit", sans-serif;
-  font-size: 48px;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-h2);
   text-align: center;
-  font-weight: 600;
-  margin-top: 50px;
-  color: #1a335b;
-}
-
-.about-p {
-  width: 55%;
-  font-family: "Lato", sans-serif;
-  font-size: 20px;
-  text-align: left;
-  margin-bottom: 2%;
-}
-
-.about-image {
-  width: 60%;
-  height: 520px;
-  object-fit: cover;
-  object-position: center;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-3xl) 0;
 }
 
 .about-h2 {
-  font-size: 49px;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-h2);
   text-align: center;
-  font-family: "Outfit", sans-serif;
-  color: #1a335b;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: var(--space-4xl) 0 var(--space-2xl) 0;
+}
+
+.about-p {
+  width: 100%;
+  max-width: 800px;
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-body-lg);
+  line-height: var(--line-height-loose);
+  text-align: left;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.about-image {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  max-height: 520px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--border-radius-md);
+  border: var(--border-width) solid var(--color-border-light);
+  margin: var(--space-2xl) 0;
 }
 
 .about-image-container {
   width: 100%;
+  max-width: 1280px;
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: var(--space-lg);
   justify-content: center;
+  margin-top: var(--space-xl);
 }
 
 .about-image-container img {
-  height: 492px;
-  width: 400px;
+  height: auto;
+  max-height: 492px;
+  width: 100%;
+  max-width: 400px;
+  object-fit: cover;
+  border-radius: var(--border-radius-md);
+  border: var(--border-width) solid var(--color-border-light);
 }
+
+/* ============================================
+   Responsive Design
+   ============================================ */
 
 @media only screen and (max-width: 1024px) {
   .about-image-container {
-    width: 100%;
-    display: flex;
     flex-direction: column;
-    gap: 20px;
-    justify-content: center;
     align-items: center;
+    gap: var(--space-md);
   }
 
+  .about-image-container img {
+    max-width: 600px;
+  }
+
+  .about-container {
+    padding: var(--space-3xl) var(--space-md);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .about-p {
+    font-size: var(--font-size-body);
+  }
+
+  .about-h1,
   .about-h2 {
-    width: 50%;
-    font-size: 49px;
-    text-align: center;
-    font-family: "Outfit", sans-serif;
+    font-size: var(--font-size-h3);
+  }
+
+  .about-container {
+    padding: var(--space-2xl) var(--space-md);
+  }
+
+  .about-image {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
   }
 }

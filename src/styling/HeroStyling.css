@@ -1,19 +1,24 @@
+/* ============================================
+   Hero Section - Minimalist Design
+   ============================================ */
+
 .hero-section {
-  font-family: "Outfit", sans-serif;
-  height: 410px;
+  font-family: var(--font-primary);
   width: 100%;
-  margin: auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0px;
-  text-align: left;
-  margin-bottom: 25px;
+  padding: var(--space-5xl) 0 var(--space-4xl);
+  background: var(--color-white);
+  margin-bottom: var(--space-2xl);
 }
 
 .hero-text-section {
   width: 80%;
+  max-width: 1280px;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   pointer-events: none;
@@ -21,36 +26,70 @@
 
 .hero-h1 {
   margin: 0;
-  font-size: 68px;
-  font-weight: 600;
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-primary);
   width: 70%;
-  line-height: 1;
-  margin-top: 50px;
-  color: #1a335b;
+  max-width: 800px;
 }
 
 .hero-h5 {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-size: 24px;
+  font-family: var(--font-secondary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-body-lg);
+  line-height: var(--line-height-loose);
+  color: var(--color-text-secondary);
   width: 80%;
+  max-width: 600px;
+  margin-top: var(--space-lg);
 }
 
 .APIproduct-filter {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  margin: 30px 30px;
+  width: 100%;
+  margin: var(--space-2xl) 0;
 }
 
+/* ============================================
+   Responsive Design
+   ============================================ */
+
 @media only screen and (max-width: 1024px) {
-  .hero-text-section {
-    margin-top: 50px;
+  .hero-section {
+    padding: var(--space-3xl) 0 var(--space-2xl);
   }
 
   .hero-h1 {
     width: 100%;
-    font-size: 48px;
+  }
+
+  .hero-h5 {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .hero-section {
+    padding: var(--space-2xl) 0 var(--space-xl);
+  }
+
+  .hero-text-section {
+    width: 90%;
+  }
+
+  .hero-h1 {
+    width: 100%;
+  }
+
+  .hero-h5 {
+    width: 100%;
+    margin-top: var(--space-md);
+  }
+
+  .APIproduct-filter {
+    margin: var(--space-xl) 0;
   }
 }

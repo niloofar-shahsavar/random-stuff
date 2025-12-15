@@ -1,0 +1,250 @@
+/* ============================================
+   RandomStuff E-Commerce - Design System
+   Minimalist & Clean Design
+   ============================================ */
+
+/* Import Inter Font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ============================================
+   CSS Custom Properties (Design Tokens)
+   ============================================ */
+
+:root {
+  /* ===== Colors ===== */
+
+  /* Primary Colors */
+  --color-white: #FFFFFF;
+  --color-soft-white: #FAFAFA;
+  --color-warm-gray: #F5F5F5;
+
+  /* Neutral Scale */
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #4A4A4A;
+  --color-text-tertiary: #757575;
+  --color-border-light: #E8E8E8;
+  --color-border-medium: #D4D4D4;
+
+  /* Accent Colors */
+  --color-accent: #2C2C2C;
+  --color-accent-hover: #000000;
+  --color-accent-light: #F0F0F0;
+
+  /* Semantic Colors */
+  --color-success: #2D7A3E;
+  --color-error: #C1403D;
+  --color-warning: #E8B931;
+
+  /* ===== Typography ===== */
+
+  /* Font Families */
+  --font-primary: 'Inter', 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-secondary: 'Inter', 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Font Sizes */
+  --font-size-h1: 3.5rem;      /* 56px */
+  --font-size-h2: 2.5rem;      /* 40px */
+  --font-size-h3: 1.75rem;     /* 28px */
+  --font-size-h4: 1.25rem;     /* 20px */
+  --font-size-body-lg: 1.125rem; /* 18px */
+  --font-size-body: 1rem;      /* 16px */
+  --font-size-body-sm: 0.875rem; /* 14px */
+  --font-size-caption: 0.75rem; /* 12px */
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Line Heights */
+  --line-height-tight: 1.1;
+  --line-height-normal: 1.2;
+  --line-height-relaxed: 1.5;
+  --line-height-loose: 1.6;
+
+  /* ===== Spacing ===== */
+
+  /* Base unit: 4px */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+  --space-3xl: 4rem;     /* 64px */
+  --space-4xl: 5rem;     /* 80px */
+  --space-5xl: 7.5rem;   /* 120px */
+
+  /* ===== Borders ===== */
+
+  --border-radius-sm: 2px;
+  --border-radius-md: 4px;
+  --border-width: 1px;
+
+  /* ===== Transitions ===== */
+
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+
+  /* ===== Shadows (minimal use) ===== */
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* ============================================
+   Global Resets & Base Styles
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-white);
+  color: var(--color-text-secondary);
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+}
+
+/* ============================================
+   Typography
+   ============================================ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-tight);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+}
+
+p {
+  margin: 0;
+  line-height: var(--line-height-loose);
+}
+
+/* ============================================
+   Links
+   ============================================ */
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+a:hover {
+  color: var(--color-text-primary);
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: all var(--transition-base);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   Forms
+   ============================================ */
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: var(--font-size-body);
+  color: var(--color-text-primary);
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ============================================
+   Responsive Typography (Mobile)
+   ============================================ */
+
+@media only screen and (max-width: 768px) {
+  :root {
+    --font-size-h1: 2.5rem;      /* 40px - reduced from 56px */
+    --font-size-h2: 2rem;        /* 32px - reduced from 40px */
+    --font-size-h3: 1.5rem;      /* 24px - reduced from 28px */
+    --font-size-h4: 1.125rem;    /* 18px - reduced from 20px */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  :root {
+    --font-size-h1: 2rem;        /* 32px */
+    --font-size-h2: 1.5rem;      /* 24px */
+  }
+}

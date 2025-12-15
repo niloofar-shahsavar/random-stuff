@@ -1,11 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
-:root {
-  --brand: #1a335b;
-}
+/* ============================================
+   Navbar - Minimalist Design
+   ============================================ */
 
 .navbar-container-highest {
   display: flex;
   justify-content: center;
+  background: var(--color-white);
+  border-bottom: var(--border-width) solid var(--color-border-light);
+  position: relative;
 }
 
 .navbar-container {
@@ -13,90 +15,113 @@
   justify-content: space-between;
   align-items: center;
   width: 80%;
-  padding: 2%;
+  padding: var(--space-lg) var(--space-md);
 }
 
 .logo {
-  width: 200px;
+  width: 160px;
+  transition: opacity var(--transition-base);
 }
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+/* ===== Navigation Links ===== */
 
 .nav-links-container {
   display: flex;
   flex-direction: row;
-  width: 30%;
-  justify-content: space-around;
-  padding-left: 15px;
+  align-items: center;
+  gap: var(--space-xl);
 }
 
 .nav-links-container.open {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 70px;
-  right: 10px;
-  background-color: #a2c2e8;
+  top: 100%;
+  right: var(--space-md);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-lg);
   z-index: 1000;
-  height: 300px;
-  border-radius: 4px;
-  padding: 20px;
+  min-width: 200px;
+  border-radius: var(--border-radius-md);
+  padding: var(--space-lg);
+  gap: var(--space-md);
   opacity: 1;
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0s;
-  transform: translateY(-20px);
+  transition: opacity var(--transition-base), transform var(--transition-base);
+  transform: translateY(0);
   visibility: visible;
-}
-
-.nav-links-container.open a {
-  opacity: 1;
-  transition: opacity 0.3s ease 0.3s;
+  border: var(--border-width) solid var(--color-border-light);
 }
 
 .nav-link {
   text-decoration: none;
-  color: var(--brand);
-  font-family: "Outfit", sans-serif;
-  font-size: 20px;
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-base);
 }
 
 .nav-link:hover {
-  text-decoration: underline;
+  color: var(--color-text-secondary);
 }
+
+/* ===== Shopping Cart ===== */
 
 .nav-shopping-cart-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
+  gap: var(--space-sm);
 }
 
 .shopping-cart {
-  font-size: 30px;
-  color: #1a335b;
+  font-size: 24px;
+  color: var(--color-text-primary);
+  transition: color var(--transition-base);
+}
+
+.shopping-cart:hover {
+  color: var(--color-text-secondary);
 }
 
 .shopping-cart-text {
   display: inline;
+  font-weight: var(--font-weight-medium);
 }
+
+/* ===== Hamburger Menu ===== */
 
 .hamburgermenu {
   display: none;
   cursor: pointer;
-  color: var(--brand);
+  color: var(--color-text-primary);
   font-size: 24px;
+  transition: color var(--transition-base);
 }
+
+.hamburgermenu:hover {
+  color: var(--color-text-secondary);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
 
 @media only screen and (max-width: 768px) {
   .nav-links-container {
     display: none;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-20px);
   }
 
   .nav-links-container.open {
     display: flex;
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
   }
 
   .hamburgermenu {
@@ -106,12 +131,20 @@
   .shopping-cart-text {
     display: none;
   }
+
+  .navbar-container {
+    padding: var(--space-md);
+  }
 }
 
 @media only screen and (max-width: 400px) {
   .nav-links-container.open {
-    width: calc(100% - 40px);
-    right: 20px;
-    left: 20px;
+    left: var(--space-md);
+    right: var(--space-md);
+    width: calc(100% - var(--space-xl));
+  }
+
+  .logo {
+    width: 140px;
   }
 }

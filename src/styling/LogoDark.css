@@ -1,26 +1,35 @@
+/* ============================================
+   Logo Dark - Minimalist Design
+   ============================================ */
+
 @import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
 
 .logo-dark {
   display: flex;
   align-items: baseline;
   flex-direction: row;
+  transition: opacity var(--transition-base);
+}
+
+.logo-dark:hover {
+  opacity: 0.8;
 }
 
 .lilita-one-regular {
   font-family: "Lilita One", sans-serif;
   font-weight: 300;
   font-style: normal;
-  color: #1f385f;
+  color: var(--color-text-primary);
 }
 
 .logo-cursor {
-  color: #1f385f;
+  color: var(--color-text-primary);
   font-size: 30px;
-  margin-left: 0px;
+  margin-left: 0;
 }
 
 .logo-cursor:hover {
-  color: #1f385f;
+  color: var(--color-text-primary);
   cursor: default;
 }
 

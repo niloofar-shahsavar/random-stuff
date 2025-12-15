@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+/* ============================================
+   Payment Information - Minimalist Design
+   ============================================ */
 
 .payment-information-container {
   display: flex;
@@ -6,25 +8,76 @@
 }
 
 .payment-information-h3 {
-  font-family: "Outfit", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-md) 0;
 }
 
 .payment-information-content {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
-  padding: 20px 20px 50px 20px;
-  background-color: #eef0f1;
-  align-items: start;
-  font-family: 'Lato', sans-serif;
-  font-size: 14px;
+  padding: var(--space-xl);
+  background-color: var(--color-soft-white);
+  border: var(--border-width) solid var(--color-border-light);
+  border-radius: var(--border-radius-md);
+  gap: var(--space-md);
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-secondary);
 }
 
 .payment-information-radiobtn {
   display: flex;
-  gap: 10px;
-  font-family: 'Lato', sans-serif;
-  font-size: 14px;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-body);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  padding: var(--space-sm) 0;
+}
+
+.payment-information-radiobtn input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--color-accent);
+}
+
+.payment-information-radiobtn label {
+  cursor: pointer;
+}
+
+.payment-information-button {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  padding: var(--space-md);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-secondary);
+  cursor: pointer;
+  border-radius: var(--border-radius-md);
+  transition: background-color var(--transition-base);
+  margin-top: var(--space-md);
+}
+
+.payment-information-button:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.payment-information-button:active {
+  transform: translateY(1px);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media only screen and (max-width: 768px) {
+  .payment-information-content {
+    padding: var(--space-lg);
+  }
 }

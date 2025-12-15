@@ -1,24 +1,83 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&display=swap");
+/* ============================================
+   Confirmation Page - Minimalist Design
+   ============================================ */
 
 .confirmation-page-container {
   display: flex;
   flex-direction: column;
-  justify-self: center;
+  justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 100px;
-  margin-bottom: 100px;
-}
-
-.confirmation-page-text {
-  font-family: "Lato", sans-serif;
+  padding: var(--space-5xl) var(--space-md);
+  min-height: 60vh;
 }
 
 .confirmation-page-h1 {
-  font-family: "Outfit", sans-serif;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: var(--space-xl) 0;
+}
+
+.confirmation-page-text {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-body-lg);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-loose);
+  max-width: 600px;
+  margin: 0 auto var(--space-md);
 }
 
 .confirmation-page-button-container {
-  margin-top: 70px;
+  margin-top: var(--space-3xl);
+}
+
+.confirmation-page-button {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  padding: var(--space-md) var(--space-2xl);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-secondary);
+  cursor: pointer;
+  border-radius: var(--border-radius-md);
+  transition: background-color var(--transition-base);
+}
+
+.confirmation-page-button:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.confirmation-page-button:active {
+  transform: translateY(1px);
+}
+
+.confirmation-page-icon {
+  font-size: 64px;
+  color: var(--color-success);
+  margin-bottom: var(--space-lg);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media only screen and (max-width: 768px) {
+  .confirmation-page-container {
+    padding: var(--space-3xl) var(--space-md);
+  }
+
+  .confirmation-page-h1 {
+    font-size: var(--font-size-h3);
+  }
+
+  .confirmation-page-text {
+    font-size: var(--font-size-body);
+  }
+
+  .confirmation-page-icon {
+    font-size: 48px;
+  }
 }

@@ -1,56 +1,68 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&display=swap");
+/* ============================================
+   Total Price Component - Minimalist Design
+   ============================================ */
 
 .total-price-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px 20px 50px 20px;
-  background-color: #eef0f1;
-  top: 10%;
+  padding: var(--space-xl);
+  background-color: var(--color-soft-white);
+  border: var(--border-width) solid var(--color-border-light);
+  border-radius: var(--border-radius-md);
   position: sticky;
-}
-
-.total-price-button {
-  padding: 15px 80px;
-  margin-top: 50px;
-  border: none;
-  border-radius: 4px;
-  background-color: #8cbfdb;
-  font-size: 24px;
-  font-weight: 600;
-  font-family: "Lato", sans-serif;
-  cursor: pointer;
-}
-
-.total-price-button:hover {
-  background-color: #67add4;
+  top: var(--space-lg);
+  gap: var(--space-md);
 }
 
 .total-price-h3 {
-  font-family: "Outfit", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0;
 }
 
 .total-price-h2 {
-  font-family: "Lato", sans-serif;
-  font-size: 20px;
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0;
 }
 
 .total-price-text {
-  font-family: "Lato", sans-serif;
-  font-size: 16px;
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-body);
+  color: var(--color-text-secondary);
+  margin: 0;
 }
 
 .total-price-row-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
+  padding: var(--space-sm) 0;
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-body);
+  color: var(--color-text-secondary);
+}
+
+.total-price-row-container:last-of-type {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  padding-top: var(--space-md);
+  border-top: var(--border-width) solid var(--color-border-light);
+  margin-top: var(--space-md);
 }
 
 .total-price-hr {
-  color: black;
   width: 100%;
+  border: none;
+  border-top: var(--border-width) solid var(--color-border-light);
+  margin: var(--space-md) 0;
 }
 
 .total-price-space {
@@ -58,13 +70,51 @@
 }
 
 .total-price-space-btn {
-  justify-items: center;
-  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--space-lg);
 }
 
+.total-price-button {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  padding: var(--space-md) var(--space-2xl);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-secondary);
+  cursor: pointer;
+  border-radius: var(--border-radius-md);
+  transition: background-color var(--transition-base);
+  width: 100%;
+}
+
+.total-price-button:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.total-price-button:active {
+  transform: translateY(1px);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
 @media only screen and (max-width: 1024px) {
+  .total-price-container {
+    position: relative;
+    top: auto;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .total-price-container {
+    padding: var(--space-lg);
+  }
+
   .total-price-button {
-    padding: 15px 50px;
-    margin-top: 50px;
+    padding: var(--space-md);
   }
 }

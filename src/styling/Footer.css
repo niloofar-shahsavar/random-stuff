@@ -1,70 +1,116 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&display=swap");
+/* ============================================
+   Footer - Minimalist Design
+   ============================================ */
 
 footer {
-  background-color: #1f385f;
-  color: white;
-  padding: 20px;
+  background-color: var(--color-soft-white);
+  border-top: var(--border-width) solid var(--color-border-light);
+  color: var(--color-text-secondary);
+  padding: var(--space-3xl) var(--space-lg);
   display: flex;
   justify-content: space-around;
+  align-items: flex-start;
   flex-wrap: wrap;
+  gap: var(--space-2xl);
+  margin-top: var(--space-4xl);
 }
 
 footer div {
-  margin: 10px;
+  margin: 0;
+  min-width: 200px;
 }
 
 footer h1,
 footer h3 {
-  margin-bottom: 10px;
-  font-family: "Lato", sans-serif;
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-md);
 }
 
 footer a {
-  color: white;
+  color: var(--color-text-secondary);
   text-decoration: none;
   display: block;
-  margin-bottom: 5px;
-  font-family: "Lato", sans-serif;
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-body-sm);
+  transition: color var(--transition-base);
 }
 
 footer a:hover {
-  text-decoration: underline;
+  color: var(--color-text-primary);
 }
 
 footer div p {
-  margin: 5px 0;
+  margin: var(--space-xs) 0;
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-secondary);
 }
 
 footer div p a {
-  color: white;
+  color: var(--color-text-secondary);
   text-decoration: none;
+  display: inline;
+  transition: color var(--transition-base);
 }
 
 footer div p a:hover {
-  text-decoration: underline;
+  color: var(--color-text-primary);
 }
 
 footer svg {
-  margin: 0 10px;
-  font-size: 24px;
+  margin: 0 var(--space-sm);
+  font-size: 20px;
   cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-base);
 }
 
 footer svg:hover {
-  color: #ddd;
+  color: var(--color-text-primary);
 }
+
+/* ===== Footer Logo Fix ===== */
+
+footer .lilita-one-regular,
+footer .lilita-one-regular-light,
+footer .logo-cursor,
+footer .logo-cursor-light {
+  color: var(--color-text-primary) !important;
+}
+
+footer .logo-dark,
+footer .logo-light {
+  color: var(--color-text-primary);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
 
 @media (max-width: 1024px) {
   footer {
     flex-direction: column;
     align-items: center;
+    padding: var(--space-2xl) var(--space-md);
   }
 
   footer div {
     text-align: center;
+    min-width: auto;
+    width: 100%;
   }
 
   footer svg {
-    font-size: 20px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: var(--space-xl) var(--space-md);
+    gap: var(--space-xl);
   }
 }
