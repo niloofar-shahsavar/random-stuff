@@ -11,18 +11,34 @@ function ProductsList() {
   const [currentPage, setCurrentPage] = useState(
     parseInt(localStorage.getItem("currentPage")) || 1
   );
+
   const productsPerPage = 4;
+  const maxVisiblePages = 5;
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => setProducts(json))
-      .catch((error) => console.error("Error fetching data:", error));
+    fetch("https://dummyjson.com/products?limit=0")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to load products");
+        }
+        return res.json();
+      })
+      .then((json) => {
+        const normalizedProducts = json.products.map((product) => ({
+          id: product.id,
+          title: product.title,
+          price: product.price,
+          description: product.description,
+          category: product.category,
+          image: product.thumbnail,
+        }));
 
-    fetch("https://fakestoreapi.com/products/categories")
-      .then((res) => res.json())
-      .then((json) => setCategories(json))
-      .catch((error) => console.error("Error fetching categories:", error));
+        setProducts(normalizedProducts);
+        setCategories([
+          ...new Set(normalizedProducts.map((product) => product.category)),
+        ]);
+      })
+      .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
   const handleCategoryChange = (category) => {
@@ -45,26 +61,86 @@ function ProductsList() {
 
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
-  const handlePageClick = (event) => {
-    const selectedPage = Number(event.target.id);
-    setCurrentPage(selectedPage);
+  const changePage = (page) => {
+    setCurrentPage(page);
+    localStorage.setItem("currentPage", page);
   };
 
   const renderPageNumbers = () => {
-    const pageNumbers = [];
-    for (let i = 1; i <= totalPages; i++) {
-      pageNumbers.push(i);
+    const pages = [];
+
+    let startPage = Math.max(
+      1,
+      currentPage - Math.floor(maxVisiblePages / 2)
+    );
+    let endPage = startPage + maxVisiblePages - 1;
+
+    if (endPage > totalPages) {
+      endPage = totalPages;
+      startPage = Math.max(1, endPage - maxVisiblePages + 1);
     }
-    return pageNumbers.map((number) => (
-      <button
-        key={number}
-        id={number}
-        onClick={handlePageClick}
-        className={currentPage === number ? "active" : ""}
-      >
-        {number}
-      </button>
-    ));
+
+    if (currentPage > 1) {
+      pages.push(
+        <button key="prev" onClick={() => changePage(currentPage - 1)}>
+          Prev
+        </button>
+      );
+    }
+
+    if (startPage > 1) {
+      pages.push(
+        <button key={1} onClick={() => changePage(1)}>
+          1
+        </button>
+      );
+
+      if (startPage > 2) {
+        pages.push(
+          <span key="start-ellipsis" className="pagination-dots">
+            ...
+          </span>
+        );
+      }
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(
+        <button
+          key={i}
+          onClick={() => changePage(i)}
+          className={currentPage === i ? "active" : ""}
+        >
+          {i}
+        </button>
+      );
+    }
+
+    if (endPage < totalPages) {
+      if (endPage < totalPages - 1) {
+        pages.push(
+          <span key="end-ellipsis" className="pagination-dots">
+            ...
+          </span>
+        );
+      }
+
+      pages.push(
+        <button key={totalPages} onClick={() => changePage(totalPages)}>
+          {totalPages}
+        </button>
+      );
+    }
+
+    if (currentPage < totalPages) {
+      pages.push(
+        <button key="next" onClick={() => changePage(currentPage + 1)}>
+          Next
+        </button>
+      );
+    }
+
+    return pages;
   };
 
   return (
@@ -77,6 +153,7 @@ function ProductsList() {
           >
             see all products
           </button>
+
           {categories.map((category) => (
             <button
               key={category}
@@ -88,6 +165,7 @@ function ProductsList() {
           ))}
         </div>
       </div>
+
       <div className="APIproduct-list">
         {currentProducts.map((product) => (
           <div key={product.id} className="APIproduct-div">
@@ -103,6 +181,7 @@ function ProductsList() {
           </div>
         ))}
       </div>
+
       <div className="pagination">{renderPageNumbers()}</div>
     </section>
   );

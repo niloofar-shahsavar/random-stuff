@@ -12,11 +12,25 @@ const ProductPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
-      .then((response) => response.json())
-      .then((json) => setProduct(json))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, [id]);
+  fetch(`https://dummyjson.com/products/${id}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to load product");
+      }
+      return response.json();
+    })
+    .then((product) =>
+      setProduct({
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        description: product.description,
+        category: product.category,
+        image: product.thumbnail,
+      })
+    )
+    .catch((error) => console.error("Error fetching data:", error));
+}, [id]);
 
   if (!product) {
     return <div>Loading...</div>;
